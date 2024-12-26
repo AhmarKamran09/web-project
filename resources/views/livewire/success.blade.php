@@ -7,7 +7,7 @@
             </div>
             <h1 class="text-2xl font-bold text-center mt-4">Payment Success</h1>
 
-            <p class="text-center mt-2">Thank you, {{ucfirst($customer->name)}}.</p>
+            <p class="text-center mt-2">Thank you</p>
             <p class="text-center mt-2">Your payment has been processed successfully.</p>
             <div class="mt-6 flex justify-center">
                 <a href="{{ route('home') }}" class="btn btn-default">Go back to shopping</a>
