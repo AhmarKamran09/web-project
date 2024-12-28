@@ -15,7 +15,8 @@ class PasswordUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
+        $response = $this            ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
+
             ->actingAs($user)
             ->from('/profile')
             ->put('/password', [
@@ -35,7 +36,8 @@ class PasswordUpdateTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
+        $response = $this            ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
+
             ->actingAs($user)
             ->from('/profile')
             ->put('/password', [

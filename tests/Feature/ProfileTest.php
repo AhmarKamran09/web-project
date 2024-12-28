@@ -26,6 +26,7 @@ class ProfileTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this
+        ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
             ->actingAs($user)
             ->patch('/profile', [
                 'name' => 'Test User',
@@ -48,6 +49,7 @@ class ProfileTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this
+        ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
             ->actingAs($user)
             ->patch('/profile', [
                 'name' => 'Test User',
@@ -65,7 +67,8 @@ class ProfileTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
+        $response = $this            ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
+
             ->actingAs($user)
             ->delete('/profile', [
                 'password' => 'password',
@@ -83,7 +86,8 @@ class ProfileTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $response = $this
+        $response = $this            ->withoutMiddleware(\App\Http\Middleware\VerifyCsrfToken::class)
+
             ->actingAs($user)
             ->from('/profile')
             ->delete('/profile', [
