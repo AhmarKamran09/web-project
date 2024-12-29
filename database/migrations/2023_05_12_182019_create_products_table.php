@@ -36,3 +36,6 @@ $table->json('images'); // Multiple image paths stored as JSON
         Schema::dropIfExists('products');
     }
 };
+
+
+
